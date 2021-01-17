@@ -1,34 +1,50 @@
-.gmail-cont{
-  height: 40px;
-  padding: 0.5em;
-  position: absolute;
-  right: 5%;
-  border-radius: 25%;
+*{
+  margin: 0%;
+  padding: 0%;
 }
 
-.git-cont{
-  height: 40px;
-  padding: 0.5em;
-  position: absolute;
-  right: 0.5%;
-  border-radius: 25%;
+.logo-img {
+  width:  100px;
+  height: 100px;
+  object-fit: scale-down;
 }
 
-.main-body{
-  background-color: black;;
-}
-
-.main-heading{
-  color: beige;
+#Contact{
+  background-color:#212F3C;
+  height: 250px;
   text-align: center;
+  padding-top: 2em;
 }
 
-.main-image{
-  height: 300px;
-  width: 300px;
-  border-radius: 50%;
-  position: absolute;
-  top: 10%;
-  margin-left: 3%;
-  margin-top: -3.5%;
+#profile-link{
+  text-decoration: none;
+  color: #FDFEFE;
+  font-size: 2em;
+  font-family: 'Varela Round', sans-serif;
+  padding-top: 2em;
+  padding: 0.5em;
+}
+
+.h1-text{
+  color: #FDFEFE;
+  padding-bottom: 0.2em;
+}
+
+.italic-text{
+  color: #FDFEFE;
+  font-size: 25px;
+  padding-bottom: 0.3em;
+}
+
+.project1{
+  width: 30%;
+  background-color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+div.container1 {
+  text-align: center;
+  padding: 30px 40px;
+  text-decoration: none;
+  font-size: 20px
 }
