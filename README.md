@@ -1,4 +1,4 @@
-# personal
+# Home..
 
 A minimal personal blog built with Astro.
 
