@@ -1,0 +1,75 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../layouts/Base.astro';
+
+const posts = await getCollection('blog');
+const sorted = posts.sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+---
+<Base>
+  <div class="name">Umar Shaikh</div>
+  <div class="sub">software engineer — mumbai</div>
+
+  <h2>about</h2>
+  <p>I write software. Mostly backend systems. Nothing interesting to say about myself.</p>
+
+  <div class="section">
+    <h2>posts</h2>
+    <ul>
+      {sorted.map((post) => (
+        <li>
+          <a href={`/blog/${post.slug}`}>{post.data.title}</a>
+          <span>
+            {post.data.date.toLocaleDateString('en-US', { month: 'short', year: 'numeric' })}
+          </span>
+        </li>
+      ))}
+    </ul>
+  </div>
+
+  <div class="links">
+    <a href="https://github.com/UmxrAbdullxh" target="_blank">github</a>
+    <a href="https://leetcode.com/u/UmarAbdullah/" target="_blank">leetcode</a>
+    <a href="mailto:misschanandlerbong08@gmail.com">email</a>
+  </div>
+</Base>
+
+<style>
+  .name {
+    font-size: 18px;
+    color: #777;
+    margin-bottom: 0.3rem; 
+  }
+  .sub { font-size: 13px; color: #444; margin-bottom: 4rem; }
+  h2 {
+    font-size: 13px;
+    color: #444;
+    letter-spacing: 0.08em;
+    font-weight: 400;
+    margin-bottom: 1.25rem;
+  }
+  p { color: #666; line-height: 1.9; }
+  .section { margin-top: 4rem; }
+  ul { list-style: none; }
+  li {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 0.7rem 0;
+    border-bottom: 0.5px solid #1e1e1e;
+  }
+  li a { color: #888; font-size: 14px; }
+  li a:hover { color: #bbb; }
+  li span {
+    font-size: 12px;
+    color: #3a3a3a;
+    white-space: nowrap;
+    margin-left: 1rem;
+  }
+  .links {
+    margin-top: 4rem;
+    display: flex;
+    gap: 1.5rem;
+  }
+  .links a { font-size: 13px; color: #444; }
+  .links a:hover { color: #777; }
+</style>
