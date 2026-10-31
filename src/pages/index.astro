@@ -6,10 +6,6 @@ const posts = await getCollection('blog');
 const sorted = posts.sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
 ---
 <Base>
-  <header class="site-header">
-    <h1 class="site-name">Umar</h1>
-  </header>
-
   <img
     class="home-banner"
     src="/images/manga-banner.png"
