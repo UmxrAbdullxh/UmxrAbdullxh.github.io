@@ -3,3 +3,6 @@ dist/
 .astro/
 .env
 .env.*
+
+# Local design mockups and planning artifacts
+/design-studies/

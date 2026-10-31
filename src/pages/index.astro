@@ -6,70 +6,44 @@ const posts = await getCollection('blog');
 const sorted = posts.sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
 ---
 <Base>
-  <div class="name">Umar Shaikh</div>
-  <div class="sub">software engineer — mumbai</div>
+  <header class="site-header">
+    <h1 class="site-name">Umar</h1>
+  </header>
 
-  <h2>about</h2>
-  <p>I write software. Mostly backend systems. Nothing interesting to say about myself.</p>
+  <img
+    class="home-banner"
+    src="/images/manga-banner.png"
+    alt=""
+    width="1978"
+    height="795"
+    fetchpriority="high"
+  />
 
-  <div class="section">
-    <h2>posts</h2>
-    <ul>
+  <div class="home-intro">
+    <p>Hi, I'm Umar. I write software. Mostly backend systems.</p>
+    <p>Nothing interesting to say about myself.</p>
+    <p class="contact-links">
+      <a href="https://github.com/UmxrAbdullxh" target="_blank" rel="noopener noreferrer">github</a>
+      <span aria-hidden="true"> · </span>
+      <a href="https://leetcode.com/u/UmarAbdullah/" target="_blank" rel="noopener noreferrer">leetcode</a>
+      <span aria-hidden="true"> · </span>
+      <a href="mailto:misschanandlerbong08@gmail.com">email</a>
+    </p>
+  </div>
+
+  <section class="writing" aria-labelledby="writing-heading">
+    <h2 class="writing-label" id="writing-heading">writing</h2>
+    <ul class="post-list" role="list">
       {sorted.map((post) => (
-        <li>
-          <a href={`/blog/${post.slug}`}>{post.data.title}</a>
-          <span>
-            {post.data.date.toLocaleDateString('en-US', { month: 'short', year: 'numeric' })}
-          </span>
+        <li class="post-row">
+          <a href={`/blog/${post.slug}/`}>{post.data.title}</a>
+          <time class="post-date" datetime={post.data.date.toISOString().slice(0, 10)}>
+            {post.data.date.toLocaleDateString('en-US', {
+              month: 'short', year: 'numeric', timeZone: 'UTC',
+            })}
+          </time>
         </li>
       ))}
     </ul>
-  </div>
-
-  <div class="links">
-    <a href="https://github.com/UmxrAbdullxh" target="_blank">github</a>
-    <a href="https://leetcode.com/u/UmarAbdullah/" target="_blank">leetcode</a>
-    <a href="mailto:misschanandlerbong08@gmail.com">email</a>
-  </div>
+  </section>
 </Base>
-
-<style>
-  .name {
-    font-size: 18px;
-    color: #777;
-    margin-bottom: 0.3rem; 
-  }
-  .sub { font-size: 13px; color: #444; margin-bottom: 4rem; }
-  h2 {
-    font-size: 13px;
-    color: #444;
-    letter-spacing: 0.08em;
-    font-weight: 400;
-    margin-bottom: 1.25rem;
-  }
-  p { color: #666; line-height: 1.9; }
-  .section { margin-top: 4rem; }
-  ul { list-style: none; }
-  li {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    padding: 0.7rem 0;
-    border-bottom: 0.5px solid #1e1e1e;
-  }
-  li a { color: #888; font-size: 14px; }
-  li a:hover { color: #bbb; }
-  li span {
-    font-size: 12px;
-    color: #3a3a3a;
-    white-space: nowrap;
-    margin-left: 1rem;
-  }
-  .links {
-    margin-top: 4rem;
-    display: flex;
-    gap: 1.5rem;
-  }
-  .links a { font-size: 13px; color: #444; }
-  .links a:hover { color: #777; }
-</style>
